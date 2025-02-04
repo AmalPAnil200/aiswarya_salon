@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<!-- =======Style======== -->
+<link rel="stylesheet" href="{% static 'style/css/home.css' %}" />
+
+
+    <section class="home-one">
+        <div class="container d-flex">
+            <div class="col-md-4 d-flex flex-column align-item-center home-main-head">
+                <h1 data-aos="fade-right">Welcome to</h1>
+                <h2 data-aos="fade-right">Aiswarya</h2>
+                <h3 data-aos="fade-right">Salon</h3>
+                <button type="button" class="book-now-button" title="button">BOOK NOW</button>
+            </div>
+            <div class="col-md-8 d-flex justify-content-center mt-5">
+                <img class="salon-img-one" data-aos="fade-left" src="{% static 'images/salon-man.jpg' %}" alt="image">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-two">
+        <div class="container">
+            <div class="col-md-6">
+                
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </section>
+    <br>
+{% endblock %}

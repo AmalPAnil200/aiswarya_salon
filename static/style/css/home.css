@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.home-one{
+    width: auto;
+    height: 500px;
+    background-color: #000000;
+}
+
+/* ========section-one-style========= */
+
+.home-main-head{
+    padding-top: 100px;
+}
+
+.home-main-head h1,
+.home-main-head h2,
+.home-main-head h3{
+    text-align: start;
+    font-weight: 200;
+    letter-spacing: 10px;
+    font-size: 55px;
+    color: #e9ecef;
+    font-family: "Raleway", serif;
+}
+
+.salon-img-one{
+    width: 370px;
+}
+
+/* custom button */
+
+.book-now-button{
+    width: 40%;
+    background-color: #ef233c;
+    border: none;
+    padding: 10px;
+    color: #e9ecef;
+}
+
+
+/* ============================section-two========================== */
+
+
+.section-two{
+    height: 500px;
+    background-color: #e9ecef;
+}
+
+
+/* ============================section-two-end====================== */
+
+
+
+
+/* media queary for mobile */
+
+@media (max-width: 768px) {
+    .salon-img-one{
+        width: 370px;
+    }
+    .home-main-head {
+        padding-top: 80px;
+    }
+  }
