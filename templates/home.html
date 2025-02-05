@@ -1,0 +1,108 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<!-- =======Style======== -->
+<link rel="stylesheet" href="{% static 'style/css/home.css' %}" />
+
+
+    <section class="home-one">
+        <div class="container d-flex">
+            <div class="col-md-6 d-flex flex-column align-item-center home-main-head">
+                <h1 data-aos="fade-right">Welcome to</h1>
+                <h2 data-aos="fade-right">Aiswarya</h2>
+                <h3 data-aos="fade-right">Salon</h3>
+                <button type="button" class="book-now-button" title="button">BOOK NOW</button>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center mt-5">
+                <img class="salon-img-one" data-aos="fade-left" src="{% static 'images/salon-man.jpg' %}" alt="image">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-two">
+        <div class="container d-flex">
+            <div class="col-md-6 d-flex justify-content-center align-item-center flex-column">
+                <img class="salon-man-two" data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine" src="{% static 'images/salon-man-two.png' %}" alt="image">
+            </div>
+            <div class="col-md-6 why-paragraph">
+                <h2>Why Choose Us</h2>
+                <p>At <span>Aiswarya Salon,</span> we believe beauty is more than just a service—it's an experience. Our skilled professionals use top-quality products and the latest techniques to ensure you look and feel your best. Whether it’s a stylish haircut, flawless makeup, or a relaxing spa treatment, we provide personalized care in a luxurious and welcoming environment. Step in and let us bring out your best look</p>
+                <button type="button" class="book-now-button" title="button">Read More..</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-three">
+        <div class="container">
+            <div class="row" id="one">
+                <h1>OUR SERVICES</h1>
+                <hr class="hr-one" />
+
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img class="image-card" src="{% static 'images/image-card.jpg' %}" alt="image">
+                        <p class="cssanimation typing">Hair Cutting</p>
+                    </div>
+                </div>                
+                <div class="col-md-2 vr-main">
+                    <div class="vr"></div>
+                    <hr class="hr-two" />
+                </div>                
+                <div class="col-md-5">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img class="image-card" src="{% static 'images/image-card-two.jpg' %}" alt="image">
+                        <p class="cssanimation typing">Facials</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-four">
+        <div class="container container-salon-about h-100 ">
+            <div class="col-md-12 ">
+                <div class="about-salon">
+                    <h1>About<span>Aiswarya</span>Salon</h1>
+                    <p>At Aiswarya Salon, we are dedicated to bringing out the best in you. With a team of skilled professionals and a passion for beauty, we offer a wide range of services, from precision haircuts and vibrant coloring to relaxing spa treatments and flawless makeup. Our salon provides a luxurious and welcoming atmosphere where you can unwind and indulge in self-care. We use high-quality products and the latest techniques to ensure you leave feeling confident and refreshed. Your beauty is our priority—step into Aiswarya Salon and experience the perfect blend of style, comfort, and care</p>
+                    <button type="button" class="book-now-button" title="button">Read More..</button>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-five">
+        <div class="container">
+            <div class="row">
+                <h1>Working Hours</h1>
+                <hr class="hr-three" />
+            </div>
+            <div class="row pb-5">
+                <div class="collapsible-container">
+                    <button class="collapsible">
+                        <h1>Monday to Saturday</h1>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="content">
+                        <p>HTML (HyperText Markup Language) is the standard markup language for structuring web documents.</p>
+                    </div>
+            
+                    <button class="collapsible">
+                        <h1>Sunday</h1>
+                        <span class="arrow">▼</span>
+                    </button>
+                    <div class="content">
+                        <p>CSS (Cascading Style Sheets) is used for styling HTML documents and controlling their layout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
