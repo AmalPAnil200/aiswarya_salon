@@ -1,0 +1,101 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<!-- =======Style======== -->
+<link rel="stylesheet" href="{% static 'style/css/about_us.css' %}" />
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Our Story</h1>
+        <p>Crafting beauty and confidence since 2010</p>
+    </div>
+</section>
+
+<!-- Story Section -->
+<section class="story-section">
+    <div class="story-container">
+        <div class="story-image"></div>
+        <div class="story-content">
+            <h2>Our Journey</h2>
+            <p>Founded in 2010, Luxury Salon began with a simple vision: to create a space where beauty meets excellence. Our founder, Sarah Johnson, believed that everyone deserves to feel beautiful and confident.</p>
+            <p>Over the years, we've grown from a small local salon to a prestigious beauty destination, serving thousands of satisfied clients. Our commitment to quality, innovation, and customer satisfaction remains at the heart of everything we do.</p>
+            <p>Today, we're proud to be recognized as one of the leading salons in the area, with a team of highly skilled professionals dedicated to bringing out your natural beauty.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="team-container">
+        <div class="section-header">
+            <h2>Meet Our Team</h2>
+            <p>Talented professionals dedicated to making you look and feel your best</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('/api/placeholder/300/300')"></div>
+                <div class="member-info">
+                    <h3>Sarah Johnson</h3>
+                    <div class="role">Founder & Master Stylist</div>
+                    <p>15+ years of experience in creating beautiful transformations</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('/api/placeholder/300/300')"></div>
+                <div class="member-info">
+                    <h3>Emily Davis</h3>
+                    <div class="role">Color Specialist</div>
+                    <p>Expert in creating vibrant, long-lasting hair colors</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image" style="background-image: url('/api/placeholder/300/300')"></div>
+                <div class="member-info">
+                    <h3>Michael Chen</h3>
+                    <div class="role">Style Director</div>
+                    <p>Specializing in modern cuts and styling techniques</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section">
+    <div class="values-container">
+        <div class="section-header">
+            <h2>Our Values</h2>
+            <p>The principles that guide everything we do</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <i>★</i>
+                <h3>Excellence</h3>
+                <p>We strive for perfection in every service we provide</p>
+            </div>
+            <div class="value-card">
+                <i>♥</i>
+                <h3>Care</h3>
+                <p>Your satisfaction and comfort are our top priorities</p>
+            </div>
+            <div class="value-card">
+                <i>↻</i>
+                <h3>Innovation</h3>
+                <p>We stay current with the latest trends and techniques</p>
+            </div>
+            <div class="value-card">
+                <i>⚡</i>
+                <h3>Passion</h3>
+                <p>We love what we do and it shows in our work</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

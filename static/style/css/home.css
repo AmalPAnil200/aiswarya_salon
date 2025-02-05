@@ -54,7 +54,7 @@
 }
 
 .why-paragraph h2{
-    padding-top: 100px;
+    padding-top: 65px;
 }
 
 .why-paragraph h2{
@@ -63,8 +63,10 @@
     color: #ef233c;
 }
 
-.why-paragraph p{
+.why-paragraph p {
     font-size: 20px;
+    font-weight: 300;
+    line-height: 2;
     text-align: justify;
 }
 
@@ -348,13 +350,15 @@
     background-color: #e9ecef;
 }
 
-.about-salon{
-    padding-top: 150px;
+.container-salon-about{
+    display: flex;
 }
 
-.about-salon h1,
-.about-salon h2,
-.about-salon h3{
+.about-salon{
+    padding-top: 100px;
+}
+
+.about-salon h1{
     font-size: 50px;
     font-family: "Raleway", serif;
     font-weight: 400;
@@ -365,10 +369,206 @@
     color: #ef233c;
 }
 
-.about-paragraph{
+.about-salon p{
     font-size: 20px;
     font-weight: 300;
-    padding-top: 50px;
+    padding-top: 20px;
     text-align: justify;
     line-height: 40px;
+}
+
+/* media queary */
+
+/* ================================================================ */
+
+@media (max-width: 480px) {
+
+    .container-salon-about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-salon h1{
+        font-size: 35px;
+        letter-spacing: 2px;
+    }
+    
+    .section-four{
+        height: 100%;
+    }
+    
+    .about-salon {
+        padding-top: 50px;
+    }
+    .about-salon p{
+        font-size: 15px;
+        padding-top: 4px;
+        text-align: justify;
+    }
+    .about-paragraph {
+        padding-top: 5px;
+    }
+    .book-now-button {
+        margin-bottom: 10px;
+    }
+
+}
+
+
+/* land scape */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .container-salon-about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-salon {
+        padding-top: 50px;
+    }
+    .about-salon h1{
+        font-size: 35px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-height:768px) and (orientation: landscape) {
+    .about-salon {
+        padding-top: 50px;
+    }
+}
+
+
+/* ================================================================ */
+
+
+
+/* section-five style */
+
+.section-five{
+    height: 100%;
+    background-color: #000000;
+}
+
+.section-five h1{
+    color: #e9ecef;
+    text-align: center;
+    font-family: "Raleway", serif;
+    font-weight: 300;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.hr-three{
+    background-color: #e9ecef;
+}
+
+/* dropdown animation */
+
+/* =================================================================================== */
+/* =================================================================================== */
+
+ /* Container styles */
+ .collapsible-container {
+    max-width: 1000px;
+    padding-bottom: 30px;
+    margin: 30px auto;
+    font-family: "Arial", sans-serif;
+}
+
+/* Collapsible button styles */
+.collapsible {
+    background: none;
+    color: #333;
+    cursor: pointer;
+    padding: 16px 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.collapsible:hover {
+    color: #007BFF;
+}
+
+/* Arrow icon */
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when active */
+.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* Content panel */
+.content {
+    padding: 0 0 0px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Content text */
+.content p {
+    margin: 0;
+    padding-top: 8px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.collapsible h1{
+    color: #e9ecef;
+    font-size: 20px;
+    padding: 0px;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .section-four {
+        height: 100%;
+        background-color: #e9ecef;
+    }
+
+    .book-now-button {
+        width: 80%;
+        padding: 6px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:768px) {
+    .section-four {
+        height: 100%;
+        background-color: #e9ecef;
+    }
+
+    .book-now-button {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-height: 768px) and (orientation: landscape) {
+    .section-four {
+        height: 100%;
+        background-color: #e9ecef;
+    }
+
+    .book-now-button {
+        width: 80%;
+        padding: 6px;
+        margin-bottom: 10px;
+    }
+
 }

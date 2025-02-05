@@ -1,0 +1,88 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<!-- =======Style======== -->
+<link rel="stylesheet" href="{% static 'style/css/media.css' %}" />
+
+
+<div class="header">
+    <h1>Our Gallery</h1>
+    <p>Explore our stunning transformations and salon atmosphere</p>
+</div>
+
+<div class="gallery-filter">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Haircuts</button>
+    <button class="filter-btn">Color</button>
+    <button class="filter-btn">Styling</button>
+    <button class="filter-btn">Salon</button>
+</div>
+
+<div class="gallery-container pb-5">
+    <!-- Replace src with your actual image paths -->
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2019/03/08/20/17/beauty-salon-4043096_1280.jpg" alt="Elegant Haircut">
+        <div class="overlay">
+            <h3>Modern Bob Cut</h3>
+            <p>Precision cutting with textured ends</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2018/03/31/04/48/beauty-salon-3277314_960_720.jpg" alt="Hair Coloring">
+        <div class="overlay">
+            <h3>Balayage Highlights</h3>
+            <p>Natural-looking, sun-kissed color</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2018/02/22/17/09/barber-shop-3173422_1280.jpg" alt="Styling">
+        <div class="overlay">
+            <h3>Bridal Updo</h3>
+            <p>Elegant wedding day styling</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2020/05/14/12/37/barber-5194406_640.jpg" alt="Salon Interior">
+        <div class="overlay">
+            <h3>Our Salon</h3>
+            <p>Luxury styling stations</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2017/10/01/16/45/hair-2806123_640.jpg" alt="Hair Treatment">
+        <div class="overlay">
+            <h3>Keratin Treatment</h3>
+            <p>Smooth and silky results</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://cdn.pixabay.com/photo/2021/11/15/12/06/barber-shop-6797941_640.jpg" alt="Color Transformation">
+        <div class="overlay">
+            <h3>Vibrant Colors</h3>
+            <p>Creative color techniques</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Add your filtering logic here
+            // This would typically involve showing/hiding gallery items
+            // based on their categories
+        });
+    });
+</script>
+
+{% endblock %}

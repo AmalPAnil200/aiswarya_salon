@@ -26,10 +26,11 @@
                     <button class="menu-toggle">&#9776;</button>
                 </div>
                 <div class="col-md-8 d-none d-md-flex justify-content-center">
-                    <p><a href="#" class="header-link btn-shine">Our Service</a></p>
-                    <p><a href="#" class="header-link btn-shine">Pricing</a></p>
-                    <p><a href="#" class="header-link btn-shine">Media</a></p>
-                    <p><a href="#" class="header-link btn-shine">About Us</a></p>
+                    <p><a href="/" class="header-link btn-shine">Home</a></p>
+                    <p><a href="#one" class="header-link btn-shine">Our Service</a></p>
+                    <p><a href="{% url 'pricing' %}" class="header-link btn-shine">Pricing</a></p>
+                    <p><a href="{% url 'media' %}" class="header-link btn-shine">Media</a></p>
+                    <p><a href="{% url 'about_us' %}" class="header-link btn-shine">About Us</a></p>
                 </div>
                 <!-- Toggle Button for Mobile -->
                 <!-- <div class="col-12 d-md-none text-end">
@@ -42,7 +43,7 @@
         <div class="sidebar-menu">
             <button class="close-btn">&times;</button>
             <div class="option-responsive">
-                <p><a href="#" class="header-link">Our Service</a></p>
+                <p><a href="#one" class="header-link">Our Service</a></p>
                 <p><a href="#" class="header-link">Pricing</a></p>
                 <p><a href="#" class="header-link">Media</a></p>
                 <p><a href="#" class="header-link">About Us</a></p>
