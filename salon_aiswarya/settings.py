@@ -24,10 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l=uo=2ozzev2t(*vrn4==)!as5_kjok9+=&b!!+mbdma8lq_38'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', 'localhost']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', 'localhost']
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Change if using another email provider
