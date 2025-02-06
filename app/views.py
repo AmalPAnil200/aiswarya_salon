@@ -14,3 +14,6 @@ def media_view(request):
 
 def about_us_view(request):
     return render(request, 'about_us.html')
+
+def booking_view(request):
+    return render(request, 'booking.html')

@@ -14,7 +14,9 @@
                 <h1 data-aos="fade-right">Welcome to</h1>
                 <h2 data-aos="fade-right">Aiswarya</h2>
                 <h3 data-aos="fade-right">Salon</h3>
-                <button type="button" class="book-now-button" title="button">BOOK NOW</button>
+                <a href="{% url 'booking' %}">
+                    <button type="button" class="book-now-button" title="button">BOOK NOW</button>
+                </a>                
             </div>
             <div class="col-md-6 d-flex justify-content-center mt-5">
                 <img class="salon-img-one" data-aos="fade-left" src="{% static 'images/salon-man.jpg' %}" alt="image">
@@ -32,7 +34,9 @@
             <div class="col-md-6 why-paragraph">
                 <h2>Why Choose Us</h2>
                 <p>At <span>Aiswarya Salon,</span> we believe beauty is more than just a service—it's an experience. Our skilled professionals use top-quality products and the latest techniques to ensure you look and feel your best. Whether it’s a stylish haircut, flawless makeup, or a relaxing spa treatment, we provide personalized care in a luxurious and welcoming environment. Step in and let us bring out your best look</p>
-                <button type="button" class="book-now-button" title="button">Read More..</button>
+                <a href="{% url 'about_us' %}">
+                    <button type="button" class="book-now-button" title="button">Read more...</button>
+                </a>  
             </div>
         </div>
     </section>
@@ -71,8 +75,9 @@
                 <div class="about-salon">
                     <h1>About<span>Aiswarya</span>Salon</h1>
                     <p>At Aiswarya Salon, we are dedicated to bringing out the best in you. With a team of skilled professionals and a passion for beauty, we offer a wide range of services, from precision haircuts and vibrant coloring to relaxing spa treatments and flawless makeup. Our salon provides a luxurious and welcoming atmosphere where you can unwind and indulge in self-care. We use high-quality products and the latest techniques to ensure you leave feeling confident and refreshed. Your beauty is our priority—step into Aiswarya Salon and experience the perfect blend of style, comfort, and care</p>
-                    <button type="button" class="book-now-button" title="button">Read More..</button>
-    
+                    <a href="{% url 'about_us' %}">
+                        <button type="button" class="book-now-button" title="button">Read more...</button>
+                    </a> 
                 </div>
             </div>
         </div>
