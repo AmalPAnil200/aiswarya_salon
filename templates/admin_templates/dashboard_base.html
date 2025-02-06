@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'admin_style/css/dashboard_base.css' %}" />
+
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">Salon Admin</div>
+            <div class="nav-item active"><a title="link" href="{% url 'dashboard' %}">Dashboard</a></div>
+            <div class="nav-item">Services</div>
+            <div class="nav-item">Staff</div>
+            <div class="nav-item">Customers</div>
+            <div class="nav-item">Reports</div>
+            <div class="nav-item">Settings</div>
+        </div>
+        {% block content %}
+        <!-- Page-specific content will go here -->
+        {% endblock %}
+        
+    
+    <script>
+        // Navigation functionality
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    
+        // Action buttons functionality
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.textContent.toLowerCase();
+                const row = btn.closest('tr');
+                const client = row.cells[0].textContent;
+                alert(`${action} appointment for ${client}`);
+            });
+        });
+    </script>
+</body>
+</html>
+

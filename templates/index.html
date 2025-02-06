@@ -43,10 +43,11 @@
         <div class="sidebar-menu">
             <button class="close-btn">&times;</button>
             <div class="option-responsive">
+                <p><a href="/" class="header-link">Home</a></p>
                 <p><a href="#one" class="header-link">Our Service</a></p>
-                <p><a href="#" class="header-link">Pricing</a></p>
-                <p><a href="#" class="header-link">Media</a></p>
-                <p><a href="#" class="header-link">About Us</a></p>
+                <p><a href="{% url 'pricing' %}" class="header-link">Pricing</a></p>
+                <p><a href="{% url 'media' %}" class="header-link">Media</a></p>
+                <p><a href="{% url 'about_us' %}" class="header-link">About Us</a></p>
             </div>
         </div>
     </section>
