@@ -1,0 +1,574 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.home-one{
+    width: auto;
+    height: 500px;
+    background-color: #000000;
+}
+
+/* ========section-one-style========= */
+
+.home-main-head{
+    padding-top: 100px;
+}
+
+.home-main-head h1,
+.home-main-head h2,
+.home-main-head h3{
+    text-align: start;
+    font-weight: 200;
+    letter-spacing: 10px;
+    font-size: 55px;
+    color: #e9ecef;
+    font-family: "Raleway", serif;
+}
+
+.salon-img-one{
+    width: 370px;
+}
+
+/* custom button */
+
+.book-now-button{
+    width: 40%;
+    background-color: #ef233c;
+    border: none;
+    padding: 10px;
+    color: #e9ecef;
+}
+
+
+/* ============================section-two========================== */
+
+
+.section-two{
+    height: 500px;
+    background-color: #e9ecef;
+}
+
+.salon-man-two{
+    padding-top: 104px;
+    width: 60%;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+.why-paragraph h2{
+    padding-top: 65px;
+}
+
+.why-paragraph h2{
+    font-size: 50px;
+    font-weight: 200;
+    color: #ef233c;
+}
+
+.why-paragraph p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 2;
+    text-align: justify;
+}
+
+.why-paragraph span{
+    color: #ef233c;
+}
+
+/* ============================section-two-end====================== */
+
+
+
+
+/* media queary for mobile */
+@media (max-width: 1114px){
+    .salon-img-one{
+        width: 370px;
+    }
+    .salon-man-two{
+        width: 350px;  
+    }
+    .why-paragraph h2 {
+        padding-top: 50px;
+    }
+    .why-paragraph h2 {
+        font-size: 30px;
+        font-weight: 200;
+        color: #ef233c;
+    }
+    .section-two {
+        height: 100%;
+        padding-bottom: 20px;
+        background-color: #e9ecef;
+    }
+    .btn-shine {
+        padding: 12px 30px;
+    }
+  }
+
+@media (max-width: 480px) {
+    .salon-img-one{
+        width: 370px;
+        display: none;
+    }
+    .home-main-head {
+        padding-top: 80px;
+    }
+    .salon-man-two{
+        display: none;    
+    }
+    .why-paragraph h2 {
+        padding-top: 40px;
+    }
+    .why-paragraph h2 {
+        font-size: 30px;
+        font-weight: 200;
+        color: #ef233c;
+    }
+    .section-two {
+        height: 100%;
+        padding-bottom: 20px;
+        background-color: #e9ecef;
+    }
+    .why-paragraph p {
+        font-size: 15px;
+        text-align: justify;
+    }
+  }
+
+
+  /* section-three style */
+
+  .section-three{
+    height: 400px;
+    background-color:#000;
+  }
+
+  .section-three h1{
+    text-align: center;
+    padding-top: 50px;
+    font-weight: 200;
+    padding: 20px;
+    color: #e9ecef;
+    font-family: "Raleway", serif;
+  }
+  
+  .hr-one {
+    color: #e9ecef;
+    background-color: #e9ecef;
+}
+
+.image-card{
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.section-three p{
+    text-align: center;
+    color: #e9ecef;
+    letter-spacing: 2px;
+    background-color: #ef233c;
+    padding: 10px;
+    width: 200px;
+    position: relative;
+    bottom: 20px;
+}
+
+.vr-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hr-two{
+    display: none;
+}
+
+.vr{
+    background-color: #e9ecef;
+    height: 200px;
+    width: 1px;
+}
+
+.typing {
+    width: 473px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #7E2EA0;
+    animation: typing 2s steps(12, end)infinite alternate, cursor .2s steps(12, end) infinite;
+}
+@keyframes typing {
+    from { width: -0 }
+}
+@keyframes cursor {
+    50% { border-color: transparent }
+}
+
+
+/* media query */
+
+@media (max-width: 480px) {
+
+    .section-three{
+        height: 100%;
+        background-color:#000;
+      }
+
+      .vr{
+        display: none;
+      }
+
+      .hr-one{
+        display: block;
+        color:#e9ecef;
+        background-color: #e9ecef;
+    }
+}
+
+@media (max-width: 1114px){
+    .image-card{
+        margin: 0;
+
+    }
+}
+
+/* Responsive Styles for Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .home-one{
+        height: 100%;
+    }
+    .home-main-head {
+        padding-top: 50px;
+    }
+
+    .home-main-head h1,
+    .home-main-head h2,
+    .home-main-head h3 {
+        font-size: 40px; /* Reduce size for smaller screens */
+        letter-spacing: 5px;
+    }
+
+    .salon-img-one {
+        width: 350px; /* Reduce image size */
+    }
+
+    .salon-man-two {
+        width: 200px;
+        padding-top: 50px;
+        filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2)); /* Adjust shadow for clarity */
+    }
+
+    .why-paragraph h2 {
+        padding-top: 40px;
+    }
+
+    .why-paragraph h2 {
+        font-size: 35px;
+    }
+
+    .why-paragraph p {
+        font-size: 18px;
+    }
+
+    .book-now-button {
+        width: 60%;
+        padding: 8px;
+    }
+
+    .section-two {
+        height: auto;
+        padding-bottom: 30px;
+    }
+
+    .section-three {
+        height: auto;
+    }
+
+    .image-card {
+        width: 250px;
+    }
+
+    .vr {
+        height: 150px;
+    }
+}
+
+/* Additional Mobile Landscape Tweaks */
+@media (max-width: 768px) and (orientation: landscape) {
+    .home-main-head {
+        padding-top: 30px;
+    }
+
+    .home-main-head h1 {
+        font-size: 30px;
+    }
+
+    .salon-img-one {
+        width: 200px;
+    }
+
+    .why-paragraph {
+        padding-top: 70px;
+    }
+
+    .why-paragraph h2 {
+        font-size: 28px;
+    }
+
+    .why-paragraph p {
+        font-size: 16px;
+    }
+
+    .section-two {
+        padding-bottom: 20px;
+    }
+
+    .book-now-button {
+        width: 80%;
+        padding: 6px;
+    }
+
+    .vr {
+        display: none; /* Hide vertical divider for small landscape screens */
+    }
+
+    .hr-one {
+        display: block;
+    }
+}
+
+
+
+/* section-four */
+
+.section-four{
+    height: 500px;
+    background-color: #e9ecef;
+}
+
+.container-salon-about{
+    display: flex;
+}
+
+.about-salon{
+    padding-top: 100px;
+}
+
+.about-salon h1{
+    font-size: 50px;
+    font-family: "Raleway", serif;
+    font-weight: 400;
+    letter-spacing: 20px;
+}
+
+.about-salon span{
+    color: #ef233c;
+}
+
+.about-salon p{
+    font-size: 20px;
+    font-weight: 300;
+    padding-top: 20px;
+    text-align: justify;
+    line-height: 40px;
+}
+
+/* media queary */
+
+/* ================================================================ */
+
+@media (max-width: 480px) {
+
+    .container-salon-about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-salon h1{
+        font-size: 35px;
+        letter-spacing: 2px;
+    }
+    
+    .section-four{
+        height: 100%;
+    }
+    
+    .about-salon {
+        padding-top: 50px;
+    }
+    .about-salon p{
+        font-size: 15px;
+        padding-top: 4px;
+        text-align: justify;
+    }
+    .about-paragraph {
+        padding-top: 5px;
+    }
+    .book-now-button {
+        margin-bottom: 10px;
+    }
+
+}
+
+
+/* land scape */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .container-salon-about{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-salon {
+        padding-top: 50px;
+    }
+    .about-salon h1{
+        font-size: 35px;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-height:768px) and (orientation: landscape) {
+    .about-salon {
+        padding-top: 50px;
+    }
+}
+
+
+/* ================================================================ */
+
+
+
+/* section-five style */
+
+.section-five{
+    height: 100%;
+    background-color: #000000;
+}
+
+.section-five h1{
+    color: #e9ecef;
+    text-align: center;
+    font-family: "Raleway", serif;
+    font-weight: 300;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.hr-three{
+    background-color: #e9ecef;
+}
+
+/* dropdown animation */
+
+/* =================================================================================== */
+/* =================================================================================== */
+
+ /* Container styles */
+ .collapsible-container {
+    max-width: 1000px;
+    padding-bottom: 30px;
+    margin: 30px auto;
+    font-family: "Arial", sans-serif;
+}
+
+/* Collapsible button styles */
+.collapsible {
+    background: none;
+    color: #333;
+    cursor: pointer;
+    padding: 16px 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.collapsible:hover {
+    color: #007BFF;
+}
+
+/* Arrow icon */
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when active */
+.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* Content panel */
+.content {
+    padding: 0 0 0px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Content text */
+.content p {
+    margin: 0;
+    padding-top: 8px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.collapsible h1{
+    color: #e9ecef;
+    font-size: 20px;
+    padding: 0px;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .section-four {
+        height: 100%;
+        background-color: #e9ecef;
+    }
+
+    .book-now-button {
+        width: 80%;
+        padding: 6px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:768px) {
+    .section-four {
+        height: 100%;
+        background-color: #e9ecef;
+    }
+
+    .book-now-button {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-height: 768px) and (orientation: landscape) {
+    .section-four {
+        height: 100%;
+        background-color: #e9ecef;
+    }
+
+    .book-now-button {
+        width: 80%;
+        padding: 6px;
+        margin-bottom: 10px;
+    }
+
+}
