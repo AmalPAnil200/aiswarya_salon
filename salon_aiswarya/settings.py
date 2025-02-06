@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'salon_aiswarya.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-import dj_database_url
+
 
 
 DATABASES = {
