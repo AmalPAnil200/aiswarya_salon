@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l=uo=2ozzev2t(*vrn4==)!as5_kjok9+=&b!!+mbdma8lq_38
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['aiswaryasalon.onrender.com']
+ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', 'localhost']
 
 
 # Application definition
@@ -126,8 +126,9 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]  # Add this line
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 
 # Default primary key field type
