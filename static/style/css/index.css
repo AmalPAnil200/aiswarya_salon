@@ -1,0 +1,521 @@
+/* font from google */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+body{
+    background-color: #ff0000;
+}
+.main-header-logo{
+    font-family: "League Spartan", serif;
+    font-size: 20px;
+    text-transform: uppercase;   
+    font-weight: 600; 
+}
+
+
+
+.header-link{
+    text-decoration: none;
+    color: black;
+    letter-spacing: 2px;
+}
+
+
+.btn-shine {
+    transform: translate(-50%, -50%);
+    padding: 12px 48px;
+    color: #000000;
+    background: linear-gradient(to right, #000000 0, #fff 10%, #000000 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: "Poppins", sans-serif;
+  }
+  @-moz-keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 180px;
+    }
+    100% {
+      background-position: 180px;
+    }
+  }
+  @-webkit-keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 180px;
+    }
+    100% {
+      background-position: 180px;
+    }
+  }
+  @-o-keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 180px;
+    }
+    100% {
+      background-position: 180px;
+    }
+  }
+  @keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 180px;
+    }
+    100% {
+      background-position: 180px;
+    }
+  }
+
+
+  /* Sidebar Menu */
+.sidebar-menu {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-menu p {
+  margin: 20px 0;
+}
+
+.sidebar-menu .header-link {
+  color: white;
+  font-size: 18px;
+}
+
+.sidebar-menu .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Toggle Button */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+
+/* Show Sidebar */
+.sidebar-menu.active {
+  right: 0;
+}
+
+
+
+  /* footer */
+
+  .main-footer{
+    height: 300px;
+    background-color: #212529;
+    color: #e9ecef;
+  }
+
+  .talk-head{
+    font-size: 30px;
+    font-weight: 300;
+  }
+
+  .main-footer a{
+    color: #ef233c;
+    text-decoration: none;
+  }
+
+  .main-footer a:hover{
+    color: #d90429;
+  }
+
+  .main-footer i{
+    color: #e9ecef;
+    margin-right: 15px;
+  }
+
+  .footer-head{
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  /* social media  */
+.main__socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 0.5em;
+    margin-right: 10px;
+  }
+  
+  .Link__instagram {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .instagram {
+    fill: #cc39a4;
+  }
+  
+  .Link__twitter {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .twitter {
+    fill: #03a9f4;
+  }
+  
+  .Link__github {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .Link__discord {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .discord {
+    fill: #8c9eff;
+  }
+  
+  .Link__instagram:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #cc39a4;
+  }
+  
+  .Link__instagram:hover .instagram {
+    fill: white;
+  }
+  
+  .Link__twitter:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #03a9f4;
+  }
+  
+  .Link__twitter:hover .twitter {
+    fill: white;
+  }
+  
+  .Link__github:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
+  }
+  
+  .Link__github:hover .github {
+    fill: white;
+  }
+  
+  .Link__discord:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+  }
+  
+  .Link__discord:hover .discord {
+    fill: white;
+  }
+  
+
+  /* comment media */
+  .line-height{
+    line-height: 40px;
+  }
+  .hr{
+    display: none;
+  }
+
+  /*============================================================ media queary ============================================================ */
+ /* ===================================================================================================================================== */
+
+  /* mobile */
+
+  @media (max-width: 480px) {
+    .main-footer{
+        height: 100%;
+      }
+
+    
+    /* ============================== footer social media icone responsive======================================== */
+    /* =========================================================================================================== */
+
+    .main__socials {
+        display: flex;
+        justify-content: end;
+        gap: 0.3em;
+        margin-right: 5px;
+      }
+      
+      .Link__instagram,
+      .Link__twitter,
+      .Link__github,
+      .Link__discord {
+        padding: 0.5em;
+        outline: none;
+        border: none;
+        background: white;
+        box-shadow: rgba(50, 50, 93, 0.2) 0px 1px 3px -1px,
+          rgba(0, 0, 0, 0.2) 0px 1px 2px -1px;
+        transition: 0.2s ease-in-out;
+        border-radius: 5px;
+      }
+      
+      .instagram { fill: #cc39a4; }
+      .twitter { fill: #03a9f4; }
+      .discord { fill: #8c9eff; }
+      
+      .Link__instagram:hover,
+      .Link__twitter:hover,
+      .Link__github:hover,
+      .Link__discord:hover {
+        cursor: pointer;
+        scale: 1.05;
+      }
+      
+      .Link__instagram:hover { background-color: #cc39a4; }
+      .Link__twitter:hover { background-color: #03a9f4; }
+      .Link__github:hover { background-color: black; }
+      .Link__discord:hover { background-color: #8c9eff; }
+      
+      .Link__instagram:hover .instagram,
+      .Link__twitter:hover .twitter,
+      .Link__github:hover .github,
+      .Link__discord:hover .discord {
+        fill: white;
+      }
+
+      .main__socials {
+        justify-content: flex-start;
+      }
+      
+      .hr{
+        display: block;
+      }
+
+    /* ============================== footer social media icone end======================================== */
+    /* ==================================================================================================== */
+
+    /* ===============================side bar==================================================== */
+
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 100vh;
+      background: white;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: right 0.3s ease-in-out;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.active {
+      right: 0;
+  }
+
+  .nav-links ul {
+      list-style: none;
+      padding: 0;
+  }
+
+  .nav-links li {
+      margin: 15px 0;
+  }
+
+  .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 33px;
+      cursor: pointer;
+      display: block;
+  }
+
+  .main-header-logo {
+    padding-top: 15px;
+    font-size: 21px;
+}
+
+.option-responsive{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 5;
+}
+
+.option-responsive p{
+  font-weight: 300;
+}
+      
+  }
+
+/* ===============================side bar end================================================ */
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links.active {
+    right: 0;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 15px 0;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 33px;
+    cursor: pointer;
+    display: block;
+}
+
+.main-header-logo {
+  padding-top: 15px;
+  font-size: 21px;
+}
+
+.option-responsive{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+line-height: 5;
+}
+
+.option-responsive p{
+font-weight: 300;
+}
+
+.main__socials {
+  display: flex;
+  justify-content: end;
+  gap: 0.3em;
+  margin-right: 5px;
+}
+
+.Link__instagram,
+.Link__twitter,
+.Link__github,
+.Link__discord {
+  padding: 0.5em;
+  outline: none;
+  border: none;
+  background: white;
+  box-shadow: rgba(50, 50, 93, 0.2) 0px 1px 3px -1px,
+    rgba(0, 0, 0, 0.2) 0px 1px 2px -1px;
+  transition: 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.instagram { fill: #cc39a4; }
+.twitter { fill: #03a9f4; }
+.discord { fill: #8c9eff; }
+
+.Link__instagram:hover,
+.Link__twitter:hover,
+.Link__github:hover,
+.Link__discord:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+
+.Link__instagram:hover { background-color: #cc39a4; }
+.Link__twitter:hover { background-color: #03a9f4; }
+.Link__github:hover { background-color: black; }
+.Link__discord:hover { background-color: #8c9eff; }
+
+.Link__instagram:hover .instagram,
+.Link__twitter:hover .twitter,
+.Link__github:hover .github,
+.Link__discord:hover .discord {
+  fill: white;
+}
+
+.main__socials {
+  justify-content: flex-start;
+}
+
+.hr{
+  display: block;
+}
+.main-footer{
+  height: 100%;
+}
+}

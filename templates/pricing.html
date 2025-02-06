@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<!-- =======Style======== -->
+<link rel="stylesheet" href="{% static 'style/css/pricing.css' %}" />
+
+
+<div class="header">
+    <h1>Luxury Salon Services</h1>
+    <p>Discover our range of premium beauty treatments</p>
+</div>
+
+<div class="pricing-container">
+    <div class="category">
+        <h2>Hair Services</h2>
+        <div class="service-item">
+            <div class="service-info">
+                <div class="service-name">Women's Haircut & Style</div>
+                <div class="service-description">Includes consultation, shampoo, cut, and blow-dry styling</div>
+            </div>
+            <div class="service-price">$65+</div>
+        </div>
+        <div class="service-item">
+            <div class="service-info">
+                <div class="service-name">Men's Haircut</div>
+                <div class="service-description">Includes consultation, shampoo, cut, and styling</div>
+            </div>
+            <div class="service-price">$35+</div>
+        </div>
+        <div class="service-item">
+            <div class="service-info">
+                <div class="service-name">Full Color</div>
+                <div class="service-description">Single process color with premium products</div>
+            </div>
+            <div class="service-price">$85+</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Styling Services</h2>
+        <div class="service-item">
+            <div class="service-info">
+                <div class="service-name">Blowout</div>
+                <div class="service-description">Shampoo and professional blow-dry styling</div>
+            </div>
+            <div class="service-price">$45+</div>
+        </div>
+        <div class="service-item">
+            <div class="service-info">
+                <div class="service-name">Special Occasion Style</div>
+                <div class="service-description">Formal styling for weddings, proms, and events</div>
+            </div>
+            <div class="service-price">$75+</div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Treatment Services</h2>
+        <div class="service-item">
+            <div class="service-info">
+                <div class="service-name">Deep Conditioning</div>
+                <div class="service-description">Intensive moisture treatment for damaged hair</div>
+            </div>
+            <div class="service-price">$30+</div>
+        </div>
+        <div class="service-item">
+            <div class="service-info">
+                <div class="service-name">Keratin Treatment</div>
+                <div class="service-description">Long-lasting smoothing and frizz control</div>
+            </div>
+            <div class="service-price">$200+</div>
+        </div>
+    </div>
+
+    <div class="note">
+        * Prices may vary based on hair length, thickness, and service complexity. Please consult with your stylist for exact pricing.
+    </div>
+</div>
+
+
+
+{% endblock %}
