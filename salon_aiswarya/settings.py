@@ -29,7 +29,12 @@ DEBUG = True
 # ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', 'localhost']
 ALLOWED_HOSTS = []
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Change if using another email provider
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '111amalpanil2002@gmail.com'  # Your email
+EMAIL_HOST_PASSWORD = 'ntre cing zpfy eaar' 
 
 # Application definition
 
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'aiswaryaadmin',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +85,39 @@ WSGI_APPLICATION = 'salon_aiswarya.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+import dj_database_url
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'salon_team',
+        'USER': 'salon_team_user',
+        'PASSWORD': 'vMbNDgGeG9iUMh895QQieBqMFNVNc1pl',
+        'HOST': 'dpg-cuigf8tumphs7380snr0-a.render.com',
+        'PORT': '5432',  # Default: 5432
     }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'salon_team',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 
 
 # Password validation

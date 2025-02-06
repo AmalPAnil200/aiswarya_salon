@@ -1,0 +1,276 @@
+{% extends "admin_templates/dashboard_base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<!-- =======Style======== -->
+<link rel="stylesheet" href="{% static 'admin_style/css/dashboard.css' %}" />
+
+<!-- Main Content -->
+<div class="main-content">
+    <div class="header">
+        <h1>Dashboard Overview</h1>
+        <span>Welcome Admin</span>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Today's Appointments</h3>
+            <div class="number">24</div>
+        </div>
+        <div class="stat-card">
+            <h3>Total Revenue</h3>
+            <div class="number">$1,250</div>
+        </div>
+        <div class="stat-card">
+            <h3>New Customers</h3>
+            <div class="number">8</div>
+        </div>
+        <div class="stat-card">
+            <h3>Available Staff</h3>
+            <div class="number">6</div>
+        </div>
+    </div>
+
+    <!-- Recent Appointments -->
+    <div class="table-container">
+        <h2>Recent Appointments</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Service</th>
+                    <th>Date & Time</th>
+                    <!-- <th>Staff</th> -->
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-b">
+                {% for booking in recent_bookings %}
+                <tr>
+                    <td>{{ booking.name }}</td>
+                    <td>{{ booking.service }}</td>
+                    <td>{{ booking.date|date:"Y-m-d" }} {{ booking.time|time:"h:i A" }}</td>
+                    <!-- <td>{{ booking.staff }}</td> -->
+                    <td>
+                        <button class="action-btn view-btn" data-id="{{ booking.id }}">View</button>
+                        <button class="action-btn edit-btn" data-id="{{ booking.id }}">Edit</button>
+                        <a href="{% url 'cancel_booking' booking.id %}" class="action-btn"
+                            onclick="return confirm('Are you sure you want to cancel this appointment?')"><button
+                                class="action-btn delete-btn">Delete</button></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No recent appointments.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Popular Services -->
+    <div class="table-container">
+        <h2>Popular Services</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Bookings</th>
+                    <th>Revenue</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Haircut & Style</td>
+                    <td>45</td>
+                    <td>$2,925</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td>Hair Color</td>
+                    <td>32</td>
+                    <td>$4,800</td>
+                    <td>Medium</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<!-- Edit Booking Modal -->
+<div id="editBookingModal" class="modal-two">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Edit Booking</h2>
+
+        <form id="editBookingForm">
+            {% csrf_token %}
+            <input type="hidden" id="bookingId" name="booking_id">
+
+            <div class="form-group">
+                <label for="newDate">New Date:</label>
+                <input type="date" id="newDate" name="new_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="newTime">New Time:</label>
+                <input type="time" id="newTime" name="new_time" required>
+            </div>
+
+            <div class="checkbox-wrapper">
+                <label>
+                    <input type="checkbox" id="cancelBooking" name="cancel_booking">
+                    Cancel this booking
+                </label>
+            </div>
+
+            <button type="submit" class="send-btn">Send Email Notification</button>
+        </form>
+    </div>
+</div>
+
+<div id="viewModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Booking Details</h2>
+        <div id="bookingDetails"></div>
+    </div>
+</div>
+
+<script>
+    const viewButtons = document.querySelectorAll('.view-btn'); // Adjust selector as needed
+    const modal = document.getElementById('viewModal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    viewButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const bookingId = this.getAttribute("data-id");
+
+            // Fetch the booking details using AJAX
+            fetch(`/aiswaryaadmin/bookings/${bookingId}/view/`)
+                .then(response => response.json())
+                .then(data => {
+                    // Populate the modal with the booking details
+                    const bookingDetails = document.getElementById("bookingDetails");
+                    bookingDetails.innerHTML = `
+                        <p><strong>Client</strong> ${data.name}</p>
+                        <p><strong>Service</strong> ${data.service}</p>
+                        <p><strong>Date</strong> ${data.date}</p>
+                        <p><strong>Time</strong> ${data.time}</p>
+                        <p><strong>Phone</strong> ${data.phone}</p>
+                        <p><strong>Email</strong> ${data.email}</p>
+                        <p><strong>Special Requests</strong> ${data.special_requests || 'None'}</p>
+                    `;
+
+                    // Show the modal with animation
+                    modal.style.display = "block";
+                    // Trigger reflow
+                    modal.offsetHeight;
+                    modal.classList.add('show');
+                });
+        });
+    });
+
+    // Close modal when clicking the close button
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300); // Match the transition duration
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+    });
+
+    // second modal
+    document.addEventListener('DOMContentLoaded', function () {
+        const editButtons = document.querySelectorAll('.edit-btn');
+        const editModal = document.getElementById('editBookingModal');
+        const closeBtn = editModal.querySelector('.close-btn');
+        const editForm = document.getElementById('editBookingForm');
+
+        // Open modal when edit button is clicked
+        editButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const bookingId = this.getAttribute('data-id');
+                document.getElementById('bookingId').value = bookingId;
+
+                // Show modal with animation
+                editModal.style.display = 'block';
+                // Trigger reflow
+                editModal.offsetHeight;
+                editModal.classList.add('show');
+
+                // Set default date and time to today
+                const today = new Date();
+                const dateString = today.toISOString().split('T')[0];
+                const timeString = today.toTimeString().slice(0, 5);
+
+                document.getElementById('newDate').value = dateString;
+                document.getElementById('newTime').value = timeString;
+            });
+        });
+
+        // Close modal functions
+        function closeModal() {
+            editModal.classList.remove('show');
+            setTimeout(() => {
+                editModal.style.display = 'none';
+            }, 300);
+        }
+
+        // Close modal when clicking close button
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === editModal) {
+                closeModal();
+            }
+        });
+
+        // Handle form submission
+        editForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const bookingId = document.getElementById('bookingId').value;
+
+            fetch(`/aiswaryaadmin/bookings/${bookingId}/edit/`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value  // CSRF token for security
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        closeModal();
+                        window.location.reload();  // Refresh to reflect changes
+                    } else {
+                        alert('Error updating booking: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error updating booking');
+                });
+        });
+    });
+</script>
+
+{% endblock %}
