@@ -1,0 +1,114 @@
+.header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    color: #d4917b;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.header p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.gallery-filter {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid #d4917b;
+    color: #d4917b;
+    padding: 8px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #d4917b;
+    color: white;
+}
+
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    columns: 3;
+    column-gap: 20px;
+}
+
+.gallery-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.overlay p {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+@media (max-width: 1200px) {
+    .gallery-container {
+        columns: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        columns: 1;
+    }
+
+    .header {
+        padding: 40px 20px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+}
