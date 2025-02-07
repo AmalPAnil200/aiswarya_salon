@@ -26,7 +26,6 @@ SECRET_KEY = 'django-insecure-l=uo=2ozzev2t(*vrn4==)!as5_kjok9+=&b!!+mbdma8lq_38
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', 'localhost']
 ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', 'localhost']
 
 
@@ -86,25 +85,30 @@ WSGI_APPLICATION = 'salon_aiswarya.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'salon_team',
-        'USER': 'salon_team_user',
-        'PASSWORD': 'vMbNDgGeG9iUMh895QQieBqMFNVNc1pl',
-        'HOST': 'dpg-cuigf8tumphs7380snr0-a.render.com',
-        'PORT': '5432',  # Default: 5432
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+import dj_database_url
+DATABASES = {
+    "default": dj_database_url.parse("postgresql://salon_team_user:vMbNDgGeG9iUMh895QQieBqMFNVNc1pl@dpg-cuigf8tumphs7380snr0-a.oregon-postgres.render.com/salon_team")
+}
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'salon_team',
+#         'USER': 'salon_team_user',
+#         'PASSWORD': 'vMbNDgGeG9iUMh895QQieBqMFNVNc1pl',
+#         'HOST': 'dpg-cuigf8tumphs7380snr0-a.render.com',
+#         'PORT': '5432',  # Default: 5432
+#     }
+# }
 
 
 
