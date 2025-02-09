@@ -6,6 +6,9 @@ from .forms import BookingForm
 from django.core.mail import send_mail
 from .forms import BookingForm
 from django.conf import settings
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+import dns.resolver
 
 def index_view(request):
     return render(request, 'index.html')
@@ -34,21 +37,35 @@ def about_us_view(request):
 #     return render(request, 'booking.html')
 
 
+def is_valid_email(email):
+    """Check if the email is valid and has an existing domain."""
+    try:
+        validate_email(email)  # Validate email format
+        domain = email.split('@')[1]  # Extract domain from email
+        dns.resolver.resolve(domain, 'MX')  # Check if domain has MX records
+        return True
+    except (ValidationError, dns.resolver.NoAnswer, dns.resolver.NXDOMAIN):
+        return False
+
 def booking_view(request):
     if request.method == "POST":
         form = BookingForm(request.POST)
         if form.is_valid():
-            # Check if the booking already exists
-            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+
+            # Validate if the email is real
+            if not is_valid_email(email):
+                return JsonResponse({'errors': 'Invalid or non-existent email address. Please enter a correct email.'}, status=400)
+
             service = form.cleaned_data['service']
             time = form.cleaned_data['time']
             date = form.cleaned_data['date']
-            
-            # If a booking exists with the same name, service, time, and date, prevent the booking
-            if Booking.objects.filter(name=name, service=service, time=time, date=date).exists():
-                return JsonResponse({'errors': 'You have already booked this service at this time.'}, status=400)
-            
-            # Save the new booking if it doesn't exist
+
+            # Check if the same email has already booked the same service at the same time
+            if Booking.objects.filter(email=email, service=service, time=time, date=date).exists():
+                return JsonResponse({'errors': 'This email has already booked this service at this time.'}, status=400)
+
+            # Save the booking
             booking = form.save()
 
             # Send confirmation email
@@ -67,11 +84,12 @@ def booking_view(request):
 
             Thank you for choosing our service!
             """
-            recipient_email = booking.email
-            send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient_email], fail_silently=False)
+            send_mail(subject, message, settings.EMAIL_HOST_USER, [booking.email], fail_silently=False)
 
             return JsonResponse({'message': 'Booking successful!', 'redirect': '/'}, status=200)
+
         else:
             return JsonResponse({'errors': form.errors}, status=400)
 
     return render(request, 'booking.html')
+

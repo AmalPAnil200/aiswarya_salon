@@ -19,19 +19,19 @@
             <div class="service-options">
                 <div class="service-option" data-value="Haircut" data-duration="60" data-price="65">
                     <h3>Haircut</h3>
-                    <p>60 min | $65</p>
+                    <p>60 min | ₹90</p>
                 </div>
                 <div class="service-option" data-value="Hair Color" data-duration="120" data-price="150">
                     <h3>Hair Color</h3>
-                    <p>120 min | $150</p>
+                    <p>120 min | ₹150</p>
                 </div>
-                <div class="service-option" data-value="Spa Treatment" data-duration="90" data-price="120">
+                <!-- <div class="service-option" data-value="Spa Treatment" data-duration="90" data-price="120">
                     <h3>Spa Treatment</h3>
                     <p>90 min | $120</p>
-                </div>
+                </div> -->
                 <div class="service-option" data-value="Styling" data-duration="30" data-price="45">
                     <h3>Styling</h3>
-                    <p>30 min | $45</p>
+                    <p>30 min | ₹45</p>
                 </div>
             </div>
             <input type="hidden" id="selectedService" name="service">
@@ -125,38 +125,52 @@
 
     // Form submission
     document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        // Disable submit button to prevent multiple submissions
-        const submitButton = document.querySelector('.submit-btn');
-        submitButton.disabled = true;
+    const emailInput = document.querySelector('input[name="email"]');
+    const email = emailInput.value.trim();
 
-        const formData = new FormData(e.target);
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return; // Stop form submission
+    }
 
-        try {
-            const response = await fetch("{% url 'booking' %}", {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-                },
-                body: formData,
-            });
+    const submitButton = document.querySelector('.submit-btn');
+    submitButton.disabled = true;
 
-            if (response.ok) {
-                const data = await response.json();
-                alert("Booking successful! A confirmation email has been sent.");
-                window.location.href = data.redirect; // Redirect to homepage
-            } else {
-                const errorData = await response.json();
-                alert("Error: " + JSON.stringify(errorData.errors));
-            }
-        } catch (error) {
-            alert("An error occurred while submitting the form: " + error);
-        } finally {
-            // Re-enable the submit button in case of error or success
-            submitButton.disabled = false;
+    const formData = new FormData(e.target);
+
+    try {
+        const response = await fetch("{% url 'booking' %}", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+            body: formData,
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert("Booking successful! A confirmation email has been sent.");
+            window.location.href = data.redirect;
+        } else {
+            const errorData = await response.json();
+            alert("Error: " + JSON.stringify(errorData.errors));
         }
-    });
+    } catch (error) {
+        alert("An error occurred while submitting the form: " + error);
+    } finally {
+        submitButton.disabled = false;
+    }
+});
+
+// JavaScript function to validate email
+function validateEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
+
+    
 </script>
 
 

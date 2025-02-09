@@ -1,8 +1,7 @@
  /* Hero Section */
  .hero {
     height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('static/images/salon-img-three.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('/static/images/salon-img-three.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -40,7 +39,7 @@
 
 .story-image {
     height: 400px;
-    background: url('/api/placeholder/600/400');
+    background: url('https://cdn.pixabay.com/photo/2019/03/08/20/17/beauty-salon-4043096_1280.jpg');
     background-size: cover;
     border-radius: 10px;
 }
@@ -57,6 +56,9 @@
 }
 
 /* Team Section */
+.member-image{
+    background: url('https://cdn.pixabay.com/photo/2016/11/29/12/52/face-1869641_1280.jpg');
+}
 .team-section {
     padding: 80px 20px;
     background: #f9f3f0;
