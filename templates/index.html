@@ -159,6 +159,23 @@
     <script>
         AOS.init();
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+
+            // Show loader when navigating away
+            window.addEventListener('beforeunload', () => {
+                loader.style.display = 'flex';
+            });
+
+            // Hide loader once the new page loads
+            window.addEventListener('load', () => {
+                loader.style.display = 'none';
+            });
+        });
+
+
+    </script>
 </body>
 
 </html>
