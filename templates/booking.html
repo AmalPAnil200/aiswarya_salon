@@ -10,6 +10,9 @@
 
 
 <div class="booking-container">
+    <div id="loader" class="loader-container">
+        <div class="loader"></div>
+    </div>    
     <form class="booking-form" id="appointmentForm" method="POST">
         {% csrf_token %}
         <h1>Book Your Appointment</h1>
@@ -170,7 +173,51 @@ function validateEmail(email) {
     return emailPattern.test(email);
 }
 
-    
+// loader script
+document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const emailInput = document.querySelector('input[name="email"]');
+    const email = emailInput.value.trim();
+
+    if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return; // Stop form submission
+    }
+
+    const submitButton = document.querySelector('.submit-btn');
+    const loader = document.getElementById('loader');
+
+    submitButton.disabled = true;
+    loader.style.display = 'flex'; // Show loader
+
+    const formData = new FormData(e.target);
+
+    try {
+        const response = await fetch("{% url 'booking' %}", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+            body: formData,
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert("Booking successful! A confirmation email has been sent.");
+            window.location.href = data.redirect;
+        } else {
+            const errorData = await response.json();
+            alert("Error: " + JSON.stringify(errorData.errors));
+        }
+    } catch (error) {
+        alert("An error occurred while submitting the form: " + error);
+    } finally {
+        submitButton.disabled = false;
+        loader.style.display = 'none'; // Hide loader
+    }
+});
+
 </script>
 
 
