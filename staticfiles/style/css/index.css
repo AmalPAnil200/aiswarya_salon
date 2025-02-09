@@ -524,6 +524,7 @@ font-weight: 300;
 }
 }
 
+
 /* Loader Container */
 .loader-container {
   position: fixed;
@@ -564,4 +565,3 @@ font-weight: 300;
   90%,
   100% {transform: translate(0) rotate(calc(var(--s,1)*180deg))}
 }
-
