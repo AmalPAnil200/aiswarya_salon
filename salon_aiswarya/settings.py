@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'salon_aiswarya.wsgi.application'
 # }
 
 
-# import dj_database_url
-# DATABASES = {
-#     "default": dj_database_url.parse("postgresql://salon_team_user:vMbNDgGeG9iUMh895QQieBqMFNVNc1pl@dpg-cuigf8tumphs7380snr0-a.oregon-postgres.render.com/salon_team")
-# }
+import dj_database_url
+DATABASES = {
+    "default": dj_database_url.parse("postgresql://salon_team_user:vMbNDgGeG9iUMh895QQieBqMFNVNc1pl@dpg-cuigf8tumphs7380snr0-a.oregon-postgres.render.com/salon_team")
+}
 
 
 # DATABASES = {
