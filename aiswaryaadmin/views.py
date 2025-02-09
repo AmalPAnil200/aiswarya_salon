@@ -44,7 +44,7 @@ def dashboard(request):
     # Count all appointments
     total_appointments = Booking.objects.count()
     # Get the last 5 bookings (or adjust as needed)
-    recent_bookings = Booking.objects.order_by('-date')[:5]
+    recent_bookings = Booking.objects.order_by('-date')[:100]
     # Count all customers
 
     # Debug print (check your console)

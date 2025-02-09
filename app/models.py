@@ -5,8 +5,8 @@ class Booking(models.Model):
     SERVICE_CHOICES = [
         ('Haircut', 'Haircut'),
         ('Hair Color', 'Hair Color'),
-        ('Spa Treatment', 'Spa Treatment'),
-        ('Styling', 'Styling'),
+        ('Beard Dressing', 'Beard Dressing'),
+        ('Shaving', 'Shaving'),
     ]
 
     # Add a ForeignKey to Customer

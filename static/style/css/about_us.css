@@ -45,7 +45,7 @@
 }
 
 .story-content h2 {
-    color: #d4917b;
+    color: #ef233c;
     font-size: 2.5em;
     margin-bottom: 20px;
 }
@@ -75,7 +75,7 @@
 }
 
 .section-header h2 {
-    color: #d4917b;
+    color: #ef233c;
     font-size: 2.5em;
     margin-bottom: 15px;
 }
@@ -110,7 +110,7 @@
 }
 
 .member-info h3 {
-    color: #d4917b;
+    color: #1a1919;
     margin-bottom: 5px;
 }
 
@@ -138,16 +138,21 @@
 }
 
 .value-card {
+    color: white;
     text-align: center;
     padding: 30px;
-    background: #f9f3f0;
+    background: #1e1e1e;
     border-radius: 10px;
 }
 
 .value-card i {
     font-size: 2em;
-    color: #d4917b;
+    color: #ffffff;
     margin-bottom: 15px;
+}
+
+.value-card h3{
+    color: white;
 }
 
 /* Responsive Design */

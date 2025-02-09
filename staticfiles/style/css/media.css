@@ -7,7 +7,7 @@
 }
 
 .header h1 {
-    color: #d4917b;
+    color: #ef233c;
     font-size: 2.5em;
     margin-bottom: 15px;
 }
@@ -24,8 +24,8 @@
 
 .filter-btn {
     background: transparent;
-    border: 2px solid #d4917b;
-    color: #d4917b;
+    border: 2px solid #ef233c;
+    color: #ef233c;
     padding: 8px 20px;
     margin: 5px;
     border-radius: 25px;
@@ -35,7 +35,7 @@
 }
 
 .filter-btn:hover, .filter-btn.active {
-    background: #d4917b;
+    background: #ef233c;
     color: white;
 }
 

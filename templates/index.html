@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="{% static 'images/wrodmark.png' %}">
+    <title>Aiswarya Salon   </title>
 
     <link rel="stylesheet" href="{% static 'style/css/index.css' %}" />
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
@@ -17,14 +18,17 @@
 
 <body>
 
-     <div id="loader" class="loader-container">
+
+    <div id="loader" class="loader-container">
         <div class="loader"></div>
     </div>
-    <section class="main-one-header m-4">
+
+    <section class="main-one-header shadow mt-4 pb-4">
+
         <div class="container">
             <div class="row w-100 align-items-center">
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <h3 class="main-header-logo">Aiswarya Salon</h3>
+                    <h3 class="main-header-logo"><img class="logo" alt="image" src="{% static 'images/logo.png' %}"></h3>
                     <button class="menu-toggle">&#9776;</button>
                 </div>
                 <div class="col-md-8 d-none d-md-flex justify-content-center">
@@ -40,7 +44,7 @@
                 </div> -->
             </div>
         </div>
-    
+
         <!-- Sidebar Menu for Mobile -->
         <div class="sidebar-menu">
             <button class="close-btn">&times;</button>
@@ -54,8 +58,8 @@
         </div>
     </section>
 
-    
-    
+
+
 
     {% block content %}
     <!-- Page-specific content will go here -->
@@ -92,6 +96,7 @@
 
                 <div class="col-md-3">
                     <h2 class="talk-head">Lets<br>talk</h2>
+                    <p>+91 9446422105</p>
                     <p>+91 8590884831</p>
                 </div>
             </div>
@@ -102,21 +107,24 @@
                 <hr class="hr" />
 
                 <div class="main__socials pb-4">
-                    <button title="social" class="Link__instagram">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            viewBox="0,0,256,256" width="30px" height="30px" fill-rule="nonzero" class="instagram">
-                            <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                                style="mix-blend-mode: normal">
-                                <g transform="scale(8,8)">
-                                    <path
-                                        d="M11.46875,5c-3.55078,0 -6.46875,2.91406 -6.46875,6.46875v9.0625c0,3.55078 2.91406,6.46875 6.46875,6.46875h9.0625c3.55078,0 6.46875,-2.91406 6.46875,-6.46875v-9.0625c0,-3.55078 -2.91406,-6.46875 -6.46875,-6.46875zM11.46875,7h9.0625c2.47266,0 4.46875,1.99609 4.46875,4.46875v9.0625c0,2.47266 -1.99609,4.46875 -4.46875,4.46875h-9.0625c-2.47266,0 -4.46875,-1.99609 -4.46875,-4.46875v-9.0625c0,-2.47266 1.99609,-4.46875 4.46875,-4.46875zM21.90625,9.1875c-0.50391,0 -0.90625,0.40234 -0.90625,0.90625c0,0.50391 0.40234,0.90625 0.90625,0.90625c0.50391,0 0.90625,-0.40234 0.90625,-0.90625c0,-0.50391 -0.40234,-0.90625 -0.90625,-0.90625zM16,10c-3.30078,0 -6,2.69922 -6,6c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-3.30078 -2.69922,-6 -6,-6zM16,12c2.22266,0 4,1.77734 4,4c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-2.22266 1.77734,-4 4,-4z">
-                                    </path>
+                    <a href="https://www.instagram.com/aiswaryahairstyle/?utm_source=ig_web_button_share_sheet" target="_blank">
+                        <button title="social" class="Link__instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0,0,256,256" width="30px" height="30px" fill-rule="nonzero" class="instagram">
+                                <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                    style="mix-blend-mode: normal">
+                                    <g transform="scale(8,8)">
+                                        <path
+                                            d="M11.46875,5c-3.55078,0 -6.46875,2.91406 -6.46875,6.46875v9.0625c0,3.55078 2.91406,6.46875 6.46875,6.46875h9.0625c3.55078,0 6.46875,-2.91406 6.46875,-6.46875v-9.0625c0,-3.55078 -2.91406,-6.46875 -6.46875,-6.46875zM11.46875,7h9.0625c2.47266,0 4.46875,1.99609 4.46875,4.46875v9.0625c0,2.47266 -1.99609,4.46875 -4.46875,4.46875h-9.0625c-2.47266,0 -4.46875,-1.99609 -4.46875,-4.46875v-9.0625c0,-2.47266 1.99609,-4.46875 4.46875,-4.46875zM21.90625,9.1875c-0.50391,0 -0.90625,0.40234 -0.90625,0.90625c0,0.50391 0.40234,0.90625 0.90625,0.90625c0.50391,0 0.90625,-0.40234 0.90625,-0.90625c0,-0.50391 -0.40234,-0.90625 -0.90625,-0.90625zM16,10c-3.30078,0 -6,2.69922 -6,6c0,3.30078 2.69922,6 6,6c3.30078,0 6,-2.69922 6,-6c0,-3.30078 -2.69922,-6 -6,-6zM16,12c2.22266,0 4,1.77734 4,4c0,2.22266 -1.77734,4 -4,4c-2.22266,0 -4,-1.77734 -4,-4c0,-2.22266 1.77734,-4 4,-4z">
+                                        </path>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
-                    </button>
+                            </svg>
+                        </button>
+                    </a>
+                    
                     <button title="social" class="Link__twitter">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px" height="30px"
                             class="twitter">
@@ -154,7 +162,7 @@
     <script src="{% static 'text-animation/TweenMax.min.js' %}"></script>
 
     <!-- outer side -->
-     
+
 
     <script>
         AOS.init();
