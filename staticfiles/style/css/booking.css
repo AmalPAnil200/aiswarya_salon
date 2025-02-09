@@ -1,3 +1,12 @@
+
+
+.section-one{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('/static/images/salon-img-three.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
 .booking-container {
     max-width: 800px;
     margin: 40px auto;
@@ -12,7 +21,7 @@
 }
 
 h1 {
-    color: #d4917b;
+    color: #ef233c;
     margin-bottom: 30px;
     text-align: center;
 }
@@ -43,6 +52,97 @@ input, select {
     margin-bottom: 25px;
 }
 
+.service-options h3{
+    font-size: 1.50rem;
+}
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.time-slot {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    background: white;
+}
+.time-slot:hover {
+    background: #ddd;
+}
+.time-slot.selected {
+    background: #4CAF50;
+    color: white;
+}
+.time-slot.disabled {
+    background: #f2f2f2;
+    color: gray;
+    cursor: not-allowed;
+}
+.time-filter {
+    margin-bottom: 10px;
+}
+.time-filter button {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+.time-filter button:hover {
+    background: #0056b3;
+}
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.time-slot {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    background: white;
+}
+.time-slot:hover {
+    background: #ddd;
+}
+.time-slot.selected {
+    background: #4CAF50;
+    color: white;
+}
+.time-slot.disabled {
+    background: #f2f2f2;
+    color: gray;
+    cursor: not-allowed;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid #ef233c;
+    color: #ef233c;
+    padding: 8px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #ef233c;
+    color: white;
+}
+
+.form-form{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+
 .service-option {
     border: 2px solid #ddd;
     border-radius: 5px;
@@ -52,11 +152,11 @@ input, select {
 }
 
 .service-option:hover {
-    border-color: #d4917b;
+    border-color: #ef233c;
 }
 
 .service-option.selected {
-    border-color: #d4917b;
+    border-color: #ef233c;
     background-color: #fdf1ee;
 }
 
@@ -77,18 +177,18 @@ input, select {
 }
 
 .time-slot:hover {
-    background-color: #fdf1ee;
-    border-color: #d4917b;
+    background-color: #ef233c;
+    border-color: #ef233c;
 }
 
 .time-slot.selected {
-    background-color: #d4917b;
+    background-color: #ef233c;
     color: white;
-    border-color: #d4917b;
+    border-color: #ef233c;
 }
 
 .submit-btn {
-    background-color: #d4917b;
+    background-color: #ef233c;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -100,7 +200,7 @@ input, select {
 }
 
 .submit-btn:hover {
-    background-color: #c17f69;
+    background-color: #ef233c;
 }
 
 @media (max-width: 600px) {

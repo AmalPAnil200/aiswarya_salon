@@ -7,9 +7,13 @@
 }
 
 .header h1 {
-    color: #d4917b;
+    color: #ef233c;
     font-size: 2.5em;
     margin-bottom: 15px;
+}
+
+.header img{
+    width: 10%;
 }
 
 .header p {
@@ -37,7 +41,7 @@
 }
 
 .category h2 {
-    color: #d4917b;
+    color: #ef233c;
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #f9f3f0;
@@ -68,7 +72,7 @@
 
 .service-price {
     font-weight: bold;
-    color: #d4917b;
+    color: #1d1b1b;
     font-size: 1.1em;
     padding-left: 20px;
 }
