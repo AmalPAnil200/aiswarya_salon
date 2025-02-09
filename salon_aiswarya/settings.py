@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-l=uo=2ozzev2t(*vrn4==)!as5_kjok9+=&b!!+mbdma8lq_38
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['aiswarya-salon.onrender.com']
 
 
 
@@ -114,16 +114,16 @@ DATABASES = {
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'salon_team',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'salon_team',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 
 
