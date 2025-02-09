@@ -1,0 +1,62 @@
+
+{% load static %}
+{% block content %}
+<!-- =======Style======== -->
+<link rel="stylesheet" href="{% static 'admin_style/css/login_style.css' %}" />
+
+<div class="login-container">
+    <div class="login-header">
+        <h1>Admin Login</h1>
+        <p>Enter your credentials to access the dashboard</p>
+    </div>
+    
+    {% if error_message %}
+    <div class="error-message">
+        <i class="fas fa-exclamation-circle"></i>
+        {{ error_message }}
+    </div>
+    {% endif %}
+    
+    <form method="POST" action="" id="loginForm">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <i class="fas fa-lock"></i>
+        </div>
+        <button type="submit" class="submit-btn">
+            Log In
+        </button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if (!username || !password) {
+            e.preventDefault();
+            const form = this;
+            form.classList.add('shake');
+            setTimeout(() => {
+                form.classList.remove('shake');
+            }, 500);
+        }
+    });
+
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.querySelector('i').style.color = '#667eea';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.querySelector('i').style.color = '#666';
+        });
+    });
+</script>
+{% endblock %}

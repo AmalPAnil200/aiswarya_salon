@@ -1,5 +1,6 @@
 from django.db import models
 
+    
 class Booking(models.Model):
     SERVICE_CHOICES = [
         ('Haircut', 'Haircut'),
@@ -8,6 +9,7 @@ class Booking(models.Model):
         ('Styling', 'Styling'),
     ]
 
+    # Add a ForeignKey to Customer
     service = models.CharField(max_length=50, choices=SERVICE_CHOICES)
     date = models.DateField()
     time = models.TimeField()
@@ -20,17 +22,4 @@ class Booking(models.Model):
     def __str__(self):
         return f"{self.name} - {self.service} on {self.date} at {self.time}"
     
-
-# appointment
-
-class Appointment(models.Model):
-    client_name = models.CharField(max_length=255)
-    service = models.CharField(max_length=255)
-    date = models.DateField()
-    time = models.TimeField()
-    staff = models.CharField(max_length=255)
-    status = models.CharField(max_length=50)
-
-    def __str__(self):
-        return f"Appointment with {self.client_name} on {self.date} at {self.time}"
 

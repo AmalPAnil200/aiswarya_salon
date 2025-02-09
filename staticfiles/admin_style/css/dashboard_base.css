@@ -1,0 +1,127 @@
+:root {
+    --primary: #6366f1;
+    --secondary: #22d3ee;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --dark: #1e293b;
+    --light: #f1f5f9;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Enhanced Sidebar */
+.sidebar {
+    width: 280px;
+    background: var(--dark);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 10px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #475569;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    padding: 1rem;
+    color: #94a3b8;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-item a{
+    text-decoration: none;
+    color: #94a3b8;
+}
+.nav-item:hover {
+    background: #334155;
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 80px;
+        padding: 1rem;
+    }
+
+    .logo span, .nav-item span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-bottom: 60px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
