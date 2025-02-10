@@ -81,6 +81,8 @@ def booking_view(request):
             - Time: {booking.time}
             
             If you have any questions, feel free to contact us.
+            
+            https://wa.me/+918590884831?text=Hi%20I%20need%20assistance%20with%20my%20booking
 
             Thank you for choosing our service!
             """

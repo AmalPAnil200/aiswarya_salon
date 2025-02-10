@@ -2,21 +2,19 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 
-
 {% block content %}
 <!-- =======Style======== -->
 <link rel="stylesheet" href="{% static 'style/css/booking.css' %}" />
-
 
 <section class="section-one">
     <div class="booking-container">
         <div id="loader" class="loader-container">
             <div class="loader"></div>
-        </div>    
+        </div>
         <form class="booking-form" id="appointmentForm" method="POST">
             {% csrf_token %}
             <h1>Book Your Appointment</h1>
-    
+
             <div class="form-group">
                 <label>Select Service</label>
                 <div class="service-options">
@@ -39,18 +37,18 @@
                 </div>
                 <input type="hidden" id="selectedService" name="service">
             </div>
-    
+
             <div class="form-group">
                 <label>Select Date</label>
                 <input type="date" id="appointmentDate" name="date" required>
             </div>
-    
+
             <div class="form-group">
                 <label>Available Time Slots</label>
                 <div class="filter-buttons">
                     <button class="filter-btn" onclick="filterSlots('morning')">Morning</button>
                     <button class="filter-btn" onclick="filterSlots('afternoon')">Afternoon</button>
-                    <button class="filter-btn"class="filter-btn" onclick="filterSlots('evening')">Evening</button>
+                    <button class="filter-btn" onclick="filterSlots('evening')">Evening</button>
                     <button class="filter-btn" onclick="filterSlots('all')">Show All</button>
                 </div>
                 <div class="time-slots">
@@ -86,34 +84,42 @@
                     <label>Your Name</label>
                     <input type="text" name="name" required placeholder="Enter your full name">
                 </div>
-        
+
                 <div class="form-group">
                     <label>Phone Number</label>
                     <input type="tel" name="phone" required placeholder="Enter your phone number">
                 </div>
-        
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required placeholder="Enter your email">
-                        <small style="display: block; font-size:10px; margin-top: 5px; color: #666;">
-                            *Please enter your valid email to receive booking confirmation.
-                        </small>
-                    </div>
-        
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required placeholder="Enter your email">
+                    <small style="display: block; font-size:10px; margin-top: 5px; color: #666;">
+                        *Please enter your valid email to receive booking confirmation.
+                    </small>
+                </div>
+
                 <div class="form-group">
                     <label>Special Requests</label>
                     <input type="text" name="special_requests" placeholder="Any special requests or notes">
                 </div>
             </div>
-    
+
             <button type="submit" class="submit-btn">Book Appointment</button>
         </form>
     </div>
 </section>
 
+<!-- Success Modal (hidden by default) -->
+<div id="successModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Booking Successful!</h2>
+        <p>A confirmation email has been sent. Please check your email for details.</p>
+    </div>
+</div>
 
 <script>
-    // Service selection
+    // Service & Time Slot Selection
     const serviceOptions = document.querySelectorAll('.service-option');
     serviceOptions.forEach(option => {
         option.addEventListener('click', () => {
@@ -123,11 +129,10 @@
         });
     });
 
-    // Function to convert time from 12-hour format (e.g., "9:00 AM") to 24-hour format ("09:00")
+    // Function to convert time to 24-hour format
     function convertTo24HourFormat(timeStr) {
         const [time, modifier] = timeStr.split(" ");
         let [hours, minutes] = time.split(":");
-
         if (modifier === "PM" && hours !== "12") {
             hours = parseInt(hours) + 12;
         }
@@ -137,19 +142,22 @@
         return `${hours}:${minutes}`;
     }
 
-    // Time slot selection
+    // Time Slot Selection (attach events only if the slot is not closed)
     const timeSlots = document.querySelectorAll('.time-slot');
     timeSlots.forEach(slot => {
-        slot.addEventListener('click', () => {
-            timeSlots.forEach(s => s.classList.remove('selected'));
-            slot.classList.add('selected');
-            // Convert to 24-hour format before storing
-            document.getElementById('selectedTime').value = convertTo24HourFormat(slot.innerText);
-        });
+        // Only add click events if the slot is not already closed
+        if (!slot.classList.contains('closed')) {
+            slot.addEventListener('click', () => {
+                timeSlots.forEach(s => s.classList.remove('selected'));
+                slot.classList.add('selected');
+                document.getElementById('selectedTime').value = convertTo24HourFormat(slot.innerText);
+            });
+        }
     });
 
-    // Time filter function
-    function filterSlots(type) {
+
+        // Time filter function
+        function filterSlots(type) {
         const slots = document.querySelectorAll('.time-slot');
         slots.forEach(slot => {
             const timeText = slot.getAttribute('data-time');
@@ -165,33 +173,71 @@
                 slot.style.display = "none";
             }
         });
-    }
+    }   
 
-    // Set minimum date to today
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get the current time
+        const now = new Date();
+        // Check if the current hour is 17 (5:00 PM) or later
+        if (now.getHours() >= 17) {
+            // Select all time-slot elements
+            const timeSlots = document.querySelectorAll('.time-slot');
+            timeSlots.forEach(slot => {
+                // Add the "closed" class to disable interaction
+                slot.classList.add('closed');
+                // Optionally, update the title/tooltip for feedback
+                slot.title = "Bookings are inactive after 9:00.";
+            });
+        }
+    });
+
+
+
+    // --------------------------
+    // Set Minimum Date to Today
+    // --------------------------
     const dateInput = document.getElementById('appointmentDate');
     const today = new Date().toISOString().split('T')[0];
     dateInput.min = today;
 
-    // Single combined form submission handler
+    // --------------------------
+    // Modal Success Message
+    // --------------------------
+    const successModal = document.getElementById("successModal");
+    const modalClose = successModal.querySelector(".close");
+
+    // Close the modal when the user clicks on the close button
+    modalClose.addEventListener("click", () => {
+        successModal.style.display = "none";
+    });
+
+    // Optionally, close the modal if the user clicks outside the modal content
+    window.addEventListener("click", (event) => {
+        if (event.target === successModal) {
+            successModal.style.display = "none";
+        }
+    });
+
+    // --------------------------
+    // Combined Form Submission Handler
+    // --------------------------
     document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const emailInput = document.querySelector('input[name="email"]');
         const email = emailInput.value.trim();
-
         if (!validateEmail(email)) {
             alert("Please enter a valid email address.");
-            return; // Stop form submission
+            return;
         }
 
         const submitButton = document.querySelector('.submit-btn');
         const loader = document.getElementById('loader');
-
         submitButton.disabled = true;
-        loader.style.display = 'flex'; // Show loader
+        loader.style.display = 'flex';
 
         const formData = new FormData(e.target);
-
         try {
             const response = await fetch("{% url 'booking' %}", {
                 method: 'POST',
@@ -203,8 +249,14 @@
 
             if (response.ok) {
                 const data = await response.json();
-                alert("Booking successful! A confirmation email has been sent.");
-                window.location.href = data.redirect;
+                // Instead of an alert, display the success modal
+                successModal.style.display = "block";
+
+                // Optionally auto-close modal and redirect after 3 seconds
+                setTimeout(() => {
+                    successModal.style.display = "none";
+                    window.location.href = data.redirect;
+                }, 3000);
             } else {
                 const errorData = await response.json();
                 alert("Error: " + JSON.stringify(errorData.errors));
@@ -213,63 +265,17 @@
             alert("An error occurred while submitting the form: " + error);
         } finally {
             submitButton.disabled = false;
-            loader.style.display = 'none'; // Hide loader
+            loader.style.display = 'none';
         }
     });
 
-    // JavaScript function to validate email
+    // --------------------------
+    // Email Validation Function
+    // --------------------------
     function validateEmail(email) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailPattern.test(email);
-    }   
-
-// loader script
-document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const emailInput = document.querySelector('input[name="email"]');
-    const email = emailInput.value.trim();
-
-    if (!validateEmail(email)) {
-        alert("Please enter a valid email address.");
-        return; // Stop form submission
     }
-
-    const submitButton = document.querySelector('.submit-btn');
-    const loader = document.getElementById('loader');
-
-    submitButton.disabled = true;
-    loader.style.display = 'flex'; // Show loader
-
-    const formData = new FormData(e.target);
-
-    try {
-        const response = await fetch("{% url 'booking' %}", {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-            },
-            body: formData,
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            alert("Booking successful! A confirmation email has been sent.");
-            window.location.href = data.redirect;
-        } else {
-            const errorData = await response.json();
-            alert("Error: " + JSON.stringify(errorData.errors));
-        }
-    } catch (error) {
-        alert("An error occurred while submitting the form: " + error);
-    } finally {
-        submitButton.disabled = false;
-        loader.style.display = 'none'; // Hide loader
-    }
-});
-
 </script>
-
-
 
 {% endblock %}
