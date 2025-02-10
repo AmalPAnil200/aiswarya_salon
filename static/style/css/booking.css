@@ -307,3 +307,119 @@ input, select {
     90%,
     100% {transform: translate(0) rotate(calc(var(--s,1)*180deg))}
   }
+
+
+/* modal */
+/* Add these styles to your booking.css file */
+
+/* Modal Base */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Modal Display State */
+.modal[style*="display: block"] {
+    display: flex !important;
+    opacity: 1;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal[style*="display: block"] .modal-content {
+    transform: translateY(0);
+}
+
+/* Modal Header */
+.modal-content h2 {
+    color: #333;
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Modal Text */
+.modal-content p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+/* Close Button */
+.modal .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.modal .close:hover {
+    background: #eeeeee;
+    color: #333;
+    transform: rotate(90deg);
+}
+
+/* Animation for Modal Entry */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+/* closing time */
+.time-slot.closed {
+    background-color: #ccc; /* Gray out the slot */
+    opacity: 0.6;
+    pointer-events: none;   /* Disable clicking */
+    cursor: not-allowed;
+}
