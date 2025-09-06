@@ -243,26 +243,39 @@
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                    'Accept': 'application/json',
                 },
                 body: formData,
             });
 
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Server response was not JSON');
+            }
+
+            const data = await response.json();
+            
             if (response.ok) {
-                const data = await response.json();
-                // Instead of an alert, display the success modal
+                // Display the success modal
                 successModal.style.display = "block";
 
                 // Optionally auto-close modal and redirect after 3 seconds
                 setTimeout(() => {
                     successModal.style.display = "none";
-                    window.location.href = data.redirect;
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    }
                 }, 3000);
             } else {
-                const errorData = await response.json();
-                alert("Error: " + JSON.stringify(errorData.errors));
+                let errorMessage = 'An error occurred';
+                if (data.errors) {
+                    errorMessage = typeof data.errors === 'string' ? data.errors : JSON.stringify(data.errors);
+                }
+                alert("Error: " + errorMessage);
             }
         } catch (error) {
-            alert("An error occurred while submitting the form: " + error);
+            console.error('Form submission error:', error);
+            alert("An error occurred while submitting the form. Please try again.");
         } finally {
             submitButton.disabled = false;
             loader.style.display = 'none';
