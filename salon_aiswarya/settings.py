@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-l=uo=2ozzev2t(*vrn4==)!as5_kjok9+=&b!!+mbdma8lq_38
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['aiswarya-salon.onrender.com']
+ALLOWED_HOSTS = ['aiswarya-salon.onrender.com', '127.0.0.1', 'localhost']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -91,9 +91,11 @@ WSGI_APPLICATION = 'salon_aiswarya.wsgi.application'
 # }
 
 
-import dj_database_url
 DATABASES = {
-    "default": dj_database_url.parse("postgresql://salon_team_user:vMbNDgGeG9iUMh895QQieBqMFNVNc1pl@dpg-cuigf8tumphs7380snr0-a.oregon-postgres.render.com/salon_team")
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
