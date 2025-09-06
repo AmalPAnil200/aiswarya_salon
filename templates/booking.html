@@ -225,6 +225,29 @@
     document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Validate all required fields
+        const requiredFields = ['service', 'date', 'time', 'name', 'phone', 'email'];
+        for (const field of requiredFields) {
+            const input = document.querySelector(`[name="${field}"]`);
+            if (!input || !input.value.trim()) {
+                alert(`Please fill in the ${field} field.`);
+                return;
+            }
+        }
+
+        // Validate service selection
+        if (!document.getElementById('selectedService').value) {
+            alert("Please select a service.");
+            return;
+        }
+
+        // Validate time selection
+        if (!document.getElementById('selectedTime').value) {
+            alert("Please select an appointment time.");
+            return;
+        }
+
+        // Validate email
         const emailInput = document.querySelector('input[name="email"]');
         const email = emailInput.value.trim();
         if (!validateEmail(email)) {
@@ -238,6 +261,13 @@
         loader.style.display = 'flex';
 
         const formData = new FormData(e.target);
+        
+        // Log form data for debugging
+        console.log('Form data being sent:');
+        for (let pair of formData.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+
         try {
             const response = await fetch("{% url 'booking' %}", {
                 method: 'POST',
@@ -248,18 +278,21 @@
                 body: formData,
             });
 
+            let data;
             const contentType = response.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
+            if (contentType && contentType.includes('application/json')) {
+                data = await response.json();
+            } else {
+                console.error('Non-JSON response:', await response.text());
                 throw new Error('Server response was not JSON');
             }
-
-            const data = await response.json();
             
             if (response.ok) {
                 // Display the success modal
                 successModal.style.display = "block";
+                document.getElementById('appointmentForm').reset();
 
-                // Optionally auto-close modal and redirect after 3 seconds
+                // Auto-close modal and redirect after 3 seconds
                 setTimeout(() => {
                     successModal.style.display = "none";
                     if (data.redirect) {
@@ -269,7 +302,13 @@
             } else {
                 let errorMessage = 'An error occurred';
                 if (data.errors) {
-                    errorMessage = typeof data.errors === 'string' ? data.errors : JSON.stringify(data.errors);
+                    if (typeof data.errors === 'string') {
+                        errorMessage = data.errors;
+                    } else if (typeof data.errors === 'object') {
+                        errorMessage = Object.entries(data.errors)
+                            .map(([field, errors]) => `${field}: ${errors.join(', ')}`)
+                            .join('\n');
+                    }
                 }
                 alert("Error: " + errorMessage);
             }
